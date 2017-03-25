@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>gallery</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onselect="return false;">
+	<!-- 2、改写视图，为模板字符串 -->
+	<div class="wrap" id="wrap">
+		<!-- 1、photo负责平移旋转 -->
+		<div class="photo photo-front" onclick="turn(this)" id="photo-{{index}}">
+			<!-- photo-wrap负责翻转 -->
+			<div class="photo-wrap" id="photo-wrap">
+				<div class="side side-front">
+					<p class="image"><img src="photo/{{img}}"></p>
+					<p class="caption">{{caption}}</p>
+				</div>
+				<div class="side side-back">
+					<p class="desc">{{desc}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="photo/data.js"></script>
+<script type="text/javascript" src="script.js">
+</script>
+</html>

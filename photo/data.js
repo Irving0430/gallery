@@ -1,0 +1,65 @@
+var data=[];
+var dataStr = '1、阿妹茶楼<br>\
+<br>\
+九分的阿妹茶楼<br>\
+<br>\
+<br>\
+2、淡江中学<br>\
+<br>\
+周杰伦母校<br>\
+<br>\
+<br>\
+3、侯桐猫村<br>\
+<br>\
+平溪火车线上的侯桐猫村<br>\
+<br>\
+<br>\
+4、花莲东海岸线<br>\
+<br>\
+台湾花莲东海岸线<br>\
+<br>\
+<br>\
+5、九份山城<br>\
+<br>\
+夕阳下的九份山城<br>\
+<br>\
+<br>\
+6、杭州南宋御街<br>\
+<br>\
+雨中的南宋御街<br>\
+<br>\
+<br>\
+7、平江路<br>\
+<br>\
+苏州平江路<br>\
+<br>\
+<br>\
+8、七里山塘<br>\
+<br>\
+苏州山塘古镇<br>\
+<br>\
+<br>\
+9、七星潭<br>\
+<br>\
+台湾七星潭<br>\
+<br>\
+<br>\
+10、双心石门<br>\
+<br>\
+花莲东海岸线<br>\
+<br>\
+<br>\
+11、渔人码头<br>\
+<br>\
+夕阳下的渔人码头\
+';
+//下面的代码是将dataStr中的内容拆分存放到data数组中
+var d = dataStr.split('<br><br><br>');
+for(var i = 0;i < d.length; i++) {
+	 var c = d[i].split('<br><br>');
+	 data.push({
+		 img:'photo_'+(i+1)+'.jpg',
+		 caption:c[0].split('、')[1],
+		 desc:c[1]
+	});
+}

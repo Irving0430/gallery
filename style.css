@@ -1,0 +1,159 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #fff;
+	color: #555;
+	font-family: 'Avenir Next','Lantinghei SC';
+	font-size: 14px;
+	-webkit-font-smoothing: antialiased;/*字体平滑*/
+}
+.wrap {
+	width: 100%;
+	height: 600px;
+	/*垂直居中*/
+	position: absolute;
+	top: 50%;
+	margin-top: -400px;
+	background-color: #333;
+	overflow: hidden;
+	-webkit-perspective:800px;/*使子元素具有3D旋转的效果*/
+	perspective:800px;
+}
+/*海报样式*/
+.photo {
+	width: 260px;
+	height: 320px;
+	position: absolute;
+	z-index: 1;
+	box-shadow: 0 0 1px rgba(0,0,0,.01);
+	transition: all .6s;
+	-webkit-transition: all .6s;
+}
+.photo .side {
+	width: 100%;
+	height: 100%;
+	background-color: #eee;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.photo .side-front {
+	/*display: none;*/
+}
+.photo .side-front .image {
+	width: 100%;
+	height: 250px;
+	line-height: 250px;
+	overflow: hidden;
+}
+.photo .side-front .image img {
+	width: 100%;
+}
+.photo .side-front .caption {
+	text-align: center;
+	font-size: 16px;
+	line-height: 50px;
+}
+.photo .side-back {
+	/*display: none;*/
+}
+.photo .side-back .desc {
+	color: #666;
+	font-size: 14px;
+	line-height: 1.5em;
+}
+.photo-center {
+	top: 50%;
+	left: 50%;
+	margin: -160px 0 0 -130px;
+	z-index: 999;
+}
+.photo-wrap {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	transform-style: preserve-3d;
+	-webkit-transition: all .6s;
+	transition: all 0.6s;
+}
+.photo-wrap .side{
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.photo-wrap .side-front {
+	-webkit-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+.photo-wrap .side-back {
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+.photo-front .photo-wrap{
+	-webkit-transform:rotateY(0deg);
+	transform:rotateY(0deg);
+}
+.photo-back .photo-wrap{
+	-webkit-transform:rotateY(180deg);
+	transform:rotateY(180deg);
+}
+
+/*优化样式*/
+.photo-wrap{
+	transform-origin: 0% 50%;
+	-webkit-transform-origin: 0% 50%;
+}
+.photo-front .photo-wrap{
+	transform:translate(0px , 0px)rotateY(0deg);
+	-webkit-transform:translate(0px , 0px)rotateY(0deg);
+}
+.photo-back .photo-wrap{
+	transform:translate(260px , 0px)rotateY(180deg);
+	-webkit-transform:translate(260px , 0px)rotateY(180deg);
+}
+/*清除图片闪动*/
+.photo{
+	left: 50%;
+	top:50%;
+	margin: -160px 0 0 -130px;
+}
+.nav {
+	width: 80%;
+	height: 30px;
+	line-height: 30px;
+	position: absolute;
+	left: 10%;
+	bottom: 20px;
+	z-index: 999;
+	text-align: center;
+}
+.nav .i {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	cursor: pointer;
+	background-color: #aaa;
+	text-align: center;
+	border-radius: 50%;
+	transform: scale(.48);
+	-webkit-transform: scale(.48);
+	transition: all .5s;
+	-webkit-transition:all .5s;
+}
+.nav .i-current {
+	transform: scale(.8);
+	-webkit-transform: scale(.8);
+	/*background-color: red;*/
+}
+.nav .i-back {
+	transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);
+	transform: scale(0.8);
+	-webkit-transform: scale(0.8);
+	background-color: #555;
+
+}
